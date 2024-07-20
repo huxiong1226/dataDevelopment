@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- 引入 ECharts 文件 -->
+    <script script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script script type="text/javascript" src="../js/echarts.js"></script>
+    <script
+      script
+      type="text/javascript"
+      src="../js/jquery.min.js?v=20221125"
+    ></script>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header><h1>头部头部</h1></header>
+      <main>
+        <div class="contain">
+		<p style="text-align:center"><img alt="" width="496" height="372" src="http://bhkfq.bodatek.net/weaver/weaver.file.FileDownload?fileid=a45a20eaa53a0a8350e9f5328167668210836a4f7d8b3231d11ca01e15aa8d026f47fd1791faa68f3df91c3dec254c5ff48d16bb0ba552659&ddcode=cbc50760a847bdb9" style="width: 740px; height: 493px;" /></p>
+          <div class="contain_leftContent">
+            <div id="topDiv">
+              <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+              <div id="histogram" style="width: 30vw; height: 40rem"></div>
+            </div>
+          </div>
+          <div class="contain_mainContent">
+            <div id="pieChart" style="width: 40vw; height: 40rem"></div>
+          </div>
+          <div class="contain_rightContent">right</div>
+        </div>
+      </main>
+    </div>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var chartDomh = document.getElementById("histogram");
+      var chartDomp = document.getElementById("pieChart");
+      var myCharth = echarts.init(chartDomh);
+      var myChartp = echarts.init(chartDomp);
+
+      var option2 = {
+        title: {
+          text: "Referer of a Website",
+          subtext: "Fake Data",
+          left: "center",
+        },
+        tooltip: {
+          trigger: "item",
+        },
+        legend: {
+          orient: "vertical",
+          left: "left",
+        },
+        series: [
+          {
+            name: "Access From",
+            type: "pie",
+            radius: "50%",
+            data: [
+              { value: 1048, name: "Search Engine" },
+              { value: 735, name: "Direct" },
+              { value: 580, name: "Email" },
+              { value: 484, name: "Union Ads" },
+              { value: 300, name: "Video Ads" },
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: "rgba(0, 0, 0, 0.5)",
+              },
+            },
+          },
+        ],
+      };
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: "",
+        },
+        tooltip: {},
+        legend: {
+          data: ["销量"],
+        },
+        xAxis: {
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "销量",
+            type: "bar",
+            data: [5, 20, 36, 10, 10, 20],
+          },
+        ],
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myCharth.setOption(option);
+      myChartp.setOption(option2);
+    </script>
+  </body>
+</html>
